@@ -1,0 +1,66 @@
+
+<div class="tree with-skeleton opened">
+	{% for(var j=0; j< a.length; j++) { %}
+	
+	<ul class="tree-children">
+
+			<span class="tree-link fb">	
+			 <i class="fa fa-fw fa-folder node-parent"></i>
+			  <a class=" tree-label grey h6">	 {{ a[j].program_name }}  </a> </span>
+				<ul class = "subfblist tree-children" style="display: none;">
+				{% for(var k=0; k< b.length; k++) { %}
+					
+					{% if(b[k].program == a[j].program_name) { %} 
+					
+						<li class="tree-node opened">
+							<span class="tree-link sfb">
+							<i class="fa fa-fw fa-folder node-parent"></i>
+							<a class=" tree-label grey h6">{{ b[k].course_name }} </a></span>
+					
+					{% } %}		
+								<ul class = "eqlist tree-children" style="display: none;">
+								{% for(var l=0; l< c.length; l++) { %}
+									
+									{% if(c[l].course == b[k].course_name) { %} 
+										
+										<li class="tree-node opened"> 
+											<span class="tree-link eb">
+											<i class="fa fa-fw fa-folder node-parent"></i>
+											<a class="tree-label grey h6">{{ c[l].chapter_name }}</a></span>
+
+													<ul class = "subeqlist tree-children" style="display: none;">
+														
+														{% for(var m=0; m< d.length; m++) { %}
+							
+															{% if(d[m].chapter == c[l].chapter_name) { %} 
+																
+																<li class="tree-node opened"> 
+																	<span class="tree-link seb">
+																	<i class="fa fa-fw fa-folder node-parent"></i>
+																	<a class="tree-label grey h6">
+																		{{ d[m].section_name }}
+																	</a></span>
+															
+																</li>
+															
+															{% } %}
+													
+													{% } %}
+													</ul>
+													</li>
+									{% } %}
+								
+										{% } %}
+									</ul>
+								</li> 
+				
+						{% } %}
+					</ul>
+				</li>
+
+		</ul> 
+	{% } %}
+
+</div>
+
+
